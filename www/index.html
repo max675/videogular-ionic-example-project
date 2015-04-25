@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+		<script src="lib/angular/angular.min.js"></script>
+		<script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+		<script src="lib/videogular/videogular.js"></script>
+		<script src="lib/videogular-controls/vg-controls.js"></script>
+		<script src="lib/videogular-overlay-play/vg-overlay-play.js"></script>
+		<script src="lib/videogular-poster/vg-poster.js"></script>
+		<script src="lib/videogular-buffering/vg-buffering.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+		
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Ionic Blank Starter</h1>
+				<div ng-controller="HomeCtrl as controller">
+				
+				
+				
+				</div>
+      </ion-header-bar>
+			<ion-content>
+			<div ng-controller="HomeCtrl as controller" class="videogular-container">
+		<videogular vg-theme="controller.config.theme">
+			<vg-media vg-src="controller.config.sources"
+					vg-tracks="controller.config.tracks">
+			</vg-media>
+ 
+			<vg-controls>
+				<vg-play-pause-button></vg-play-pause-button>
+				<vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+				<vg-scrub-bar>
+					<vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+				</vg-scrub-bar>
+				<vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+				<vg-volume>
+					<vg-mute-button></vg-mute-button>
+					<vg-volume-bar></vg-volume-bar>
+				</vg-volume>
+				<vg-fullscreen-button></vg-fullscreen-button>
+			</vg-controls>
+ 
+			<vg-overlay-play></vg-overlay-play>
+			<vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
+		</videogular>
+
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
